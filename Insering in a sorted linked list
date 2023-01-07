@@ -1,0 +1,31 @@
+structure of the node of the list is as
+struct Node
+{
+    int data;
+    struct Node* next;
+
+    Node(int x){
+        data = x;
+        next = NULL;
+    }
+};
+
+Node *sortedInsert(struct Node* head, int data) {
+        // Code here
+        struct Node *t, *q =NULL,*p;
+        t = new Node(data);
+        p = head;
+        
+        while(p!=NULL && p->data < t->data){
+            q = p;
+            p=p->next;
+        }
+        if(p==head && p->data >= t->data){
+            t->next = head;
+            head = t;
+        }else{
+            t->next = q->next;
+            q->next = t;
+        }
+        return head;
+    }
