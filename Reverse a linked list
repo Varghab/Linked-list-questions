@@ -1,0 +1,38 @@
+// Using Auxillary space - O(N) - Reversing the elements
+ListNode* reverseList(ListNode* head) {
+        ListNode *p=head;
+        ListNode *q=head;
+        if(p==NULL || p->next == NULL){
+            return head;
+        }
+        vector<int>temp;
+        while(q!=NULL){
+            temp.push_back(q->val);
+            q=q->next;
+        }
+        reverse(temp.begin(),temp.end());
+        for(auto x:temp){
+            p->val = x;
+            p=p->next;
+        }
+
+        return head;
+    }
+    
+    
+// Reversing the links - Three pointers
+
+ListNode* reverseList(ListNode* head) {
+        ListNode *curr = head, *next=NULL,*prev=NULL;
+        if(curr==NULL || curr->next == NULL){
+            return head;
+        }
+        while(curr!=NULL){
+            prev = next;
+            next = curr;
+            curr = curr->next;
+            next->next = prev;
+        }
+        head = next;
+        return head;
+    }
