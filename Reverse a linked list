@@ -1,4 +1,4 @@
-// Using Auxillary space - O(N) - Reversing the elements
+// Using Auxiliary space - O(N) - Reversing the elements
 ListNode* reverseList(ListNode* head) {
         ListNode *p=head;
         ListNode *q=head;
