@@ -1,0 +1,16 @@
+ListNode* middleNode(ListNode* head) {
+        ListNode* p=head;
+        int count = 0;
+        while(p!=NULL){
+            count++;
+            p=p->next;
+        }
+        if(count==1){
+            return head;
+        }
+        int temp = count/2;
+        for(int i=0;i<temp;i++){
+            head = head->next;
+        }
+        return head;
+    }
